@@ -24,6 +24,23 @@ command -v stow &>/dev/null || install_pkg stow
 command -v tree &>/dev/null || install_pkg tree
 command -v jq &>/dev/null || install_pkg jq
 
+# Detect WSL
+if grep -qi microsoft /proc/version 2>/dev/null; then
+    echo "WSL detected, cleaning up Windows symlinks..."
+    for dir in */; do
+        pkg="${dir%/}"
+        # Find dotfiles/directories this package would stow
+        find "$pkg" -maxdepth 2 -name '.*' | while read -r file; do
+            target="$HOME/$(basename "$file")"
+            # If target is an absolute symlink to /mnt/c, remove it
+            if [[ -L "$target" ]] && readlink "$target" | grep -q '^/mnt/c'; then
+                echo "Removing Windows symlink: $target → $(readlink "$target")"
+                rm "$target"
+            fi
+        done
+    done
+fi
+
 # Stow everything
 cd "$DOTFILES_DIR"
 for dir in */; do
