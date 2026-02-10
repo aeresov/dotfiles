@@ -29,7 +29,7 @@ cd "$DOTFILES_DIR"
 for dir in */; do
     pkg="${dir%/}"
     echo "Stowing ${pkg}..."
-    stow -t "$HOME" --adopt "$pkg"
+    stow -t "$HOME" --restow "$pkg"
 done
 
 echo "Done!"
