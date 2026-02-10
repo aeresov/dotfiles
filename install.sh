@@ -21,15 +21,15 @@ install_pkg() {
 command -v stow &>/dev/null || install_pkg stow
 
 # Optional: install other tools you want everywhere
-command -v git &>/dev/null || install_pkg git
-command -v zsh &>/dev/null || install_pkg zsh
-command -v starship &>/dev/null || install_pkg starship
+command -v tree &>/dev/null || install_pkg tree
+command -v jq &>/dev/null || install_pkg jq
 
 # Stow everything
 cd "$DOTFILES_DIR"
 for dir in */; do
-    echo "Stowing ${dir%/}..."
-    stow -t "$HOME" --restow "${dir%/}"
+    pkg="${dir%/}"
+    echo "Stowing ${pkg}..."
+    stow -t "$HOME" --adopt "$pkg"
 done
 
 echo "Done!"
