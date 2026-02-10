@@ -1,0 +1,15 @@
+# Secrets
+.aws/credentials
+.ssh/id_*
+.ssh/known_hosts
+
+# Shell history
+.bash_history
+.zsh_history
+
+# OS junk
+.DS_Store
+
+# Editor
+*.swp
+
