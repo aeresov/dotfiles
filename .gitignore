@@ -1,7 +1,10 @@
 # Secrets
 **/.aws/credentials
 **/.ssh/id_*
-**/.ssh/known_hosts*
+**/.ssh/known_hosts.old
+
+# aws q
+**/.aws/amazonq
 
 # Shell history
 .bash_history
