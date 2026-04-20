@@ -21,7 +21,6 @@ Each top-level directory is a stow package:
 - **aws/** — `~/.aws/config`
 - **bash/** — `~/.bash_profile`, `~/.bash_aliases`
 - **inputrc/** — `~/.inputrc`
-- **ssh/** — `~/.ssh/config`, `~/.ssh/known_hosts`
 
 ### Adding a new dotfile
 
