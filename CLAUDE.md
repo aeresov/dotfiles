@@ -20,7 +20,6 @@ Each top-level directory is a stow package:
 
 - **aws/** — `~/.aws/config`
 - **bash/** — `~/.bash_profile`, `~/.bash_aliases`
-- **claude/** — `~/.claude/settings.json`
 - **inputrc/** — `~/.inputrc`
 - **ssh/** — `~/.ssh/config`, `~/.ssh/known_hosts`
 
